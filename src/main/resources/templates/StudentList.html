@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+    <title>Title</title>
+</head>
+<body>
+<div class="container mt-4">
+    <section class="h-100 h-custom" style="background-color: #8fc4b7;">
+     <table class="table table-striped">
+         <tr>
+             <th>Name</th>
+             <th>Email</th>
+             <th>Cell</th>
+             <th>Address</th>
+             <th>Gender</th>
+             <th>Subject</th>
+             <th>Action</th>
+         </tr>
+
+         <th:block th:each="st: ${list}">
+             <tr>
+                 <td th:text="${st.name}"></td>
+                 <td th:text="${st.email}"></td>
+                 <td th:text="${st.cell}"></td>
+                 <td th:text="${st.address}"></td>
+                 <td th:text="${st.gender}"></td>
+                 <td th:text="${st.subject}"></td>
+                 <td>
+                     <a th:href=" @{'/studentedit/' +${st.id}  }" class="btn btn-warning">Edit</a>
+                     <a th:href=" @{ '/studentdelete/'+${st.id} }" class="btn btn-danger">Delete</a>
+                 </td>
+             </tr>
+
+         </th:block>
+
+     </table>
+    </section>
+</div>
+</body>
+</html>

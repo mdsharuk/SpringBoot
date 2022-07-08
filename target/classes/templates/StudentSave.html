@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+    <title>Title</title>
+</head>
+<body>
+<section class="h-100 h-custom" style="background-color: #8fc4b7;">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-lg-8 col-xl-6">
+                <div class="card rounded-3">
+                    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/img3.webp" class="w-100" style="border-top-left-radius: .3rem; border-top-right-radius: .3rem;" alt="Sample photo">
+                    <div class="card-body p-4 p-md-5">
+                        <h3 class="mb-4 pb-2 pb-md-0 mb-md-5 px-md-2">ALL STUDENT</h3>
+                        <form th:action="@{/studentsave/}" th:method="post" th:object="${student}">
+
+                            <input type="hidden" class="form-control"  th:field="*{id}"><br>
+
+                            <label class="form-label">name</label>
+                            <input type="text"  class="form-control" th:field="*{name}"><br>
+                            <label class="form-label">email</label>
+                            <input type="email"  class="form-control" th:field="*{email}"> <br>
+                            <label class="form-label">cell</label>
+                            <input type="text" class="form-control" th:field="*{cell}"><br>
+                            <label class="form-label">address</label>
+                            <input type="text"  class="form-control" th:field="*{address}" ><br>
+                            <label class="form-label">gender</label>
+                            <input type="radio" name="gender" th:value="male" th:field="*{gender}">male
+                            <input type="radio" name="gender" th:value="female" th:field="*{gender}">female
+                            <input type="radio" name="gender" th:value="other" th:field="*{gender}">other<br>
+                            <label>subject</label>
+                            <select name="subject" th:field="*{subject}" >
+                                <option th:value="SelectOne" th:field="*{subject}">Select on</option>
+                                 <option th:value="Html" th:field="*{subject}">Html</option>
+                                <option th:value="Java" th:field="*{subject}">Java</option>
+                                 <option th:value="Python" th:field="*{subject}">Python</option>
+                                <option th:value="C" th:field="*{subject}">C</option>
+
+                            </select><br>
+
+
+                            <button type="submit" class="btn btn-success btn-lg mb-1">Submit</button>
+
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>
